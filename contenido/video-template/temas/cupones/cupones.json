@@ -1,0 +1,111 @@
+{
+  "handle": "skool.com/easymeli",
+  "intro": {
+    "prompt": "Fotografía cinematográfica vertical 9:16. La persona, de noche, sentada frente a un notebook en un escritorio ordenado, vista de costado y ligeramente por detrás del hombro. En la pantalla se ve un panel de configuración de promociones y cupones de un marketplace (paneles, botones y toggles genéricos, sin marcas reales). Su cara muestra concentración tranquila, sin darse cuenta de nada. Luz del monitor iluminando su rostro con un tono azulado, un cálido acento amarillo (#FFC400) como luz de acento en la escena, ambiente azul marino profundo (#0A162E), alto contraste, profundidad de campo, atmósfera de tensión silenciosa. SIN texto legible, SIN letras, SIN números, SIN logos de marcas reales en la imagen.",
+    "archivo": "ai/cupones-intro.png",
+    "persona": true
+  },
+  "portada": {
+    "amenaza": [
+      {
+        "text": "ESTÁS"
+      },
+      {
+        "text": "REGALANDO"
+      },
+      {
+        "text": "UN 20%",
+        "hot": true
+      },
+      {
+        "text": "Y NO LO"
+      },
+      {
+        "text": "SABES"
+      }
+    ],
+    "numero": {
+      "over": "LO QUE PIERDES EN CADA VENTA",
+      "num": "-20%",
+      "sub1": "DE TU MARGEN.",
+      "sub2": "NO DEL DE MERCADOLIBRE."
+    },
+    "pregunta": {
+      "top": "UN DESCUENTO",
+      "ring": "20%",
+      "bottom": [
+        "QUE TÚ",
+        "NO PUSISTE"
+      ]
+    }
+  },
+  "escenas": [
+    {
+      "layout": "titulo-cuerpo",
+      "kicker": "EL MECANISMO",
+      "titulo": "EL CUPÓN ES ACUMULABLE",
+      "cuerpo": "Se apila sobre la promoción que ya tenías activa.",
+      "cuerpoColor": "yellow",
+      "asset": {
+        "src": "canva/cupon.png",
+        "x": 520,
+        "y": 1320,
+        "w": 380
+      }
+    },
+    {
+      "layout": "desglose",
+      "kicker": "LO QUE PASA",
+      "titulo": "EN LA MISMA VENTA",
+      "filas": [
+        [
+          "PROMOCIÓN ACTIVA",
+          "-10%"
+        ],
+        [
+          "CUPÓN DE SEGUIDOR",
+          "-10%"
+        ]
+      ],
+      "total": [
+        "SALE",
+        "-20%"
+      ],
+      "cuerpo": "De tu margen, no del de MercadoLibre.",
+      "cuerpoColor": "muted"
+    },
+    {
+      "layout": "titulo-regla-cuerpo",
+      "kicker": "POR QUÉ PASA",
+      "titulo": "NADIE TE AVISA",
+      "cuerpo": "Los creaste en pantallas distintas. La plataforma nunca te los suma.",
+      "cuerpoColor": "yellow"
+    },
+    {
+      "layout": "titulo-cuerpo",
+      "kicker": "DÓNDE DUELE",
+      "titulo": "MARGEN CHICO: SE COME LA VENTA ENTERA",
+      "cuerpo": "Supermercado. Mascotas. Suplementos.",
+      "cuerpoColor": "muted"
+    },
+    {
+      "layout": "cierre",
+      "kicker": "QUÉ HACER",
+      "titulo": "NO PONGAS CUPÓN A TODO.",
+      "titulo2": "REVISA CUÁLES YA TIENEN PROMOCIÓN.",
+      "tarea": "ANDA A REVISAR TUS CUPONES ACTIVOS"
+    }
+  ],
+  "publicacion": {
+    "descripcion": "Si vendés en MercadoLibre, estás regalando hasta un 20% de tu margen y no lo ves. El cupón de seguidor se suma a la promoción que ya tenías activa, y la plataforma nunca te avisa. Antes de ponerle cupón a todo, revisá qué publicaciones ya tienen promoción. ¿Sabías que se acumulaban? Contámelo abajo 👇",
+    "hashtags": [
+      "mercadolibre",
+      "mercadolibrechile",
+      "ventasonline",
+      "ecommercechile",
+      "emprendimientochile",
+      "vendedores",
+      "easymeli"
+    ]
+  }
+}

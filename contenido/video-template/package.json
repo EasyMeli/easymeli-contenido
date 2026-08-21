@@ -1,0 +1,41 @@
+{
+  "name": "easymeli-video",
+  "version": "1.0.0",
+  "description": "Portadas y carruseles animados Easy Meli (sistema visual v2)",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render Carrusel-amenaza-dinamica out/video.mp4",
+    "still": "remotion still Carrusel-amenaza-dinamica out/still.png --frame=90",
+    "nuevo": "node scripts/nuevo-video.mjs",
+    "producir": "node scripts/producir.mjs",
+    "imagen": "node scripts/generar-imagen.mjs",
+    "transcribir": "node scripts/transcribir.mjs",
+    "corto": "node scripts/nuevo-video.mjs guiones/cupones.json --corto",
+    "check": "node scripts/nuevo-video.mjs guiones/cupones.json --check",
+    "libreto": "node scripts/libreto.mjs",
+    "hablado": "node scripts/producir-hablado.mjs",
+    "todo": "node scripts/todo.mjs",
+    "estado": "node scripts/estado-contenido.mjs",
+    "voz-historial": "node scripts/extraer-voz.mjs"
+  },
+  "dependencies": {
+    "@remotion/animation-utils": "^4.0.513",
+    "@remotion/captions": "^4.0.513",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/gif": "^4.0.513",
+    "@remotion/google-fonts": "^4.0.513",
+    "@remotion/install-whisper-cpp": "^4.0.513",
+    "@remotion/layout-utils": "^4.0.513",
+    "@remotion/lottie": "^4.0.513",
+    "@remotion/motion-blur": "^4.0.513",
+    "@remotion/noise": "^4.0.513",
+    "@remotion/transitions": "^4.0.513",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.6.0"
+  }
+}

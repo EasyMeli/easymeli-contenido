@@ -1,0 +1,31 @@
+# ── NUNCA subir claves ni datos personales ──
+**/.env
+# fotos de cara (personales, cada uno las suyas)
+**/referencias/*.jpeg
+**/referencias/*.jpg
+**/referencias/*.png
+**/referencias/*.webp
+# capturas de pantalla personales
+**/capturas/*.png
+**/capturas/*.jpg
+**/temas/**/capturas/*
+
+# ── Pesados / generados (se crean solos al instalar o producir) ──
+**/node_modules/
+**/whisper.cpp/
+**/out/
+**/public/grabaciones/
+**/public/captions/
+**/public/ai/
+**/public/carrusel-rostro/
+# grabaciones de video (tomas propias)
+**/temas/**/grabaciones/*
+**/biblioteca/*.txt
+
+# ── Sistema ──
+**/.DS_Store
+*.log
+
+# perfil de voz (personal)
+**/Mi-ADN-VOZ/voice-dna.json
+**/Mi-ADN-VOZ/muestras/*.txt

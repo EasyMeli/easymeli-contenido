@@ -1,0 +1,16 @@
+# Secretos — NUNCA subir
+.env
+.env.*
+!.env.example
+
+# Dependencias y build
+node_modules/
+out/.props-*.json
+out/.guionSchema.mjs
+
+# Sistema
+.DS_Store
+
+# Fotos personales de referencia (privadas)
+referencias/*
+!referencias/LEEME.md
