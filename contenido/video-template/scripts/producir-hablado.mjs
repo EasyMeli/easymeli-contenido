@@ -8,7 +8,7 @@
 //   2) node scripts/producir-hablado.mjs <tema>        (ej: cupones)
 //
 // Flags: --sin-imagen (no toca Gemini)  ·  --re-subs (rehace la transcripción)
-//        --detras (recorta al presentador → objetos detrás de él, corre local)
+//        --detras / --sin-detras (objetos detrás del presentador; auto si se puede)
 import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync, readdirSync } from "node:fs";
 import { resolve, join } from "node:path";
@@ -43,11 +43,20 @@ try { combinarClips(clips.map((c) => resolve(c)), pub); } catch (e) { die(e.mess
 const footageFrames = Math.round(duracionSeg(pub) * 30);
 console.log(`▶ Footage final: ${duracionSeg(pub).toFixed(1)}s → ${footageFrames} frames`);
 
-// 2b) Efecto "detrás" (opcional): recorta al presentador → los objetos salen
-// detrás de él (no le tapan la cara). Corre local (mediapipe), sin tokens.
-// Se activa con --detras o "video": { "objetosDetras": true } en el guion.
+// 2b) Efecto "detrás": recorta al presentador → los objetos salen detrás de él
+// (no le tapan la cara). Corre local (mediapipe), sin tokens.
+// Por defecto es AUTO: se activa "cuando es recomendable", o sea cuando el recorte
+// está disponible (mediapipe instalado), porque siempre mejora. Overrides:
+//   --detras / --sin-detras  ·  "video": { "objetosDetras": true|false } en el guion.
 let fgArchivo = "";
-if (has("--detras") || guion.video?.objetosDetras) {
+const detrasOff = has("--sin-detras") || guion.video?.objetosDetras === false;
+const detrasOn = has("--detras") || guion.video?.objetosDetras === true;
+const recorteDisponible = spawnSync("python3", ["-c", "import mediapipe"], { stdio: "ignore" }).status === 0;
+const usarDetras = !detrasOff && (detrasOn || recorteDisponible); // auto = si se puede
+if (usarDetras && !recorteDisponible) {
+  console.warn('  ⚠ Efecto "detrás" pedido pero falta el recorte. Instala: pip install -r requirements-detras.txt. Sigo con los objetos delante.');
+} else if (usarDetras) {
+  if (!detrasOn) console.log('▶ Efecto "detrás" recomendable (recorte disponible) → activado');
   const fgPub = resolve("public/grabaciones", `${nombre}-fg.webm`);
   run("Recortar presentador (efecto detrás, local)", "python3", ["scripts/recorte-persona.py", pub, fgPub]);
   if (existsSync(fgPub)) fgArchivo = `grabaciones/${nombre}-fg.webm`;
