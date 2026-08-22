@@ -12,7 +12,7 @@ simple y no me mandes a la Terminal.
 ```
 
 ## Acceso (el repo es privado)
-El repositorio vive en `github.com/florercai-svg/easymeli-contenido` y es
+El repositorio vive en `github.com/EasyMeli/easymeli-contenido` y es
 **privado**. Para que alguien pueda clonarlo:
 1. Invítalo como colaborador en GitHub (Settings → Collaborators → Add people).
 2. La persona debe tener su `git` conectado a su cuenta de GitHub.
