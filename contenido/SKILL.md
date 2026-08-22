@@ -212,7 +212,7 @@ semana", "ya no tengo temas"):
 3. **No repitas.** Cruzá contra `banco-de-ideas.md` (lo ya anotado/publicado) y
    contra las carpetas de `temas/` (lo ya producido). Descartá lo que ya salió.
 4. **Prioriza por lo que convierte:** mira `references/bitacora.md` y
-   `references/ganadores.md`; incliná la tanda hacia el tipo de ángulo/forma que
+   `references/ganadores.md`; inclina la tanda hacia el tipo de ángulo/forma que
    ya retuvo o trajo signups.
 5. **Balanceá la variedad** con las 6 formas (no dos iguales seguidas).
 6. **Anota las ideas nuevas** en `banco-de-ideas.md` (estado `idea`), una fila
@@ -401,7 +401,7 @@ scripts python. Detalle en `scripts/producir.mjs` y `references/COMO-USARLA.md`.
 
 ## Guion de grabación (video hablado por el usuario)
 
-Cuando el usuario va a grabarse él (su estudio) sobre una clase, entregá el
+Cuando el usuario va a grabarse él (su estudio) sobre una clase, entrega el
 **guion de grabación** siguiendo `references/guion-grabacion.md`: estructura de
 3 etapas (gancho que filtra al cliente ideal + micro-CTA / valor "vender sin
 vender" / CTA final visual). Devolvé el título gancho (texto en pantalla ~6s),
@@ -438,4 +438,4 @@ El plan de trabajo para escalar la skill (5 fases: bitácora, video desde
 datos, repurposing, calendario semanal, playbook que aprende) vive en
 `ROADMAP.md`. Es un documento vivo: al retomar el trabajo de evolución de
 la skill, léelo primero para saber en qué fase vamos, y al cerrar una
-sesión con avance, actualizá su sección "Estado actual".
+sesión con avance, actualiza su sección "Estado actual".

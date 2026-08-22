@@ -99,4 +99,4 @@ const out = `${outDir}/${nombre}-hablado.mp4`;
 run(`Render video (${introArchivo ? "con intro" : "sin intro"})`, "npx", ["remotion", "render", "VideoHablado", out, "--props", propsPath]);
 
 console.log(`\n✅ Listo: ${out}`);
-console.log(`   Subtítulos editables en ${captionsPath} (corregí lo que whisper escuche mal y re-renderizá).`);
+console.log(`   Subtítulos editables en ${captionsPath} (corrige lo que whisper escuche mal y re-renderiza).`);

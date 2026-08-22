@@ -34,7 +34,7 @@ chiquita, mientras el dedo ya baja. Reglas de portada, probadas:
 - **Branding mínimo.** Logo chico arriba y el handle abajo, nada más. El
   gancho se lleva el frame entero. La marca fuerte va en las internas.
 - **Valida en miniatura.** Antes de publicar, mira la portada reducida al
-  tamaño del feed y entrecerrá los ojos. Si el gancho se lee así, sirve.
+  tamaño del feed y entrecierra los ojos. Si el gancho se lee así, sirve.
 
 El generador trae esto como componente `cover_threat` (ver abajo).
 
@@ -92,7 +92,7 @@ coherencia de marca sin parecer la plataforma.
 
 `scripts/generar_carrusel.py` es un toolkit reutilizable. Genera las
 slides como PNG en `./out/` con la clase `Slide`. Trae un ejemplo
-completo (cupones acumulables) al final; adaptá el contenido usando los
+completo (cupones acumulables) al final; adapta el contenido usando los
 componentes, no reescribas el dibujo.
 
 Rutas: usa las fuentes y el logo de `~/.claude/skills/contenido/assets/`.

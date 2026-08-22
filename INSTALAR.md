@@ -29,7 +29,7 @@ ejecutas.
    `~/.claude/skills/contenido/` (rsync/cp, excluyendo `.git`).
 
 4. **Crea su carpeta de trabajo:** pregúntale en el chat dónde crearla
-   (sugerí `~/EasyMeli-Contenido`), copia ahí `contenido/video-template/`
+   (sugiere `~/EasyMeli-Contenido`), copia ahí `contenido/video-template/`
    (excluyendo `node_modules` y `.env`), y crea `.env` desde `.env.ejemplo`.
 
 5. **Instala dependencias** dentro de la carpeta de trabajo: `npm install` y

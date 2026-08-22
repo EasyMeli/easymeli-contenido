@@ -50,7 +50,7 @@ render). Avisar del techo si la máquina es lenta.
 1. **Duración por lectura, nunca fija.** Cada slide dura según su texto:
    `entrada + palabras / READ_WPS + respiro`. La constante `READ_WPS` en
    `Carrusel.tsx` controla el ritmo de todo el video (bajala a 2.8 si va
-   rápido, subila si va lento). Actualizá el conteo de palabras de cada
+   rápido, subila si va lento). Actualiza el conteo de palabras de cada
    slide en el objeto `DUR` cuando cambies el copy.
 
 2. **Una slide, una idea, mínimas palabras.** Si una slide necesita más de
@@ -94,7 +94,7 @@ Todo el layout respeta márgenes seguros, definidos en `ui.tsx`:
 - El CTA y el contenido importante viven sobre los ~1580px; la franja
   inferior queda para la descripción/usuario de TikTok.
 
-Para verificar: renderizá un frame y superponé las zonas (botones der. ~
+Para verificar: renderiza un frame y superpone las zonas (botones der. ~
 150px, franja inf. ~320px). Nada importante debe caer ahí.
 
 ## Efectos disponibles (add-ons de Remotion)
@@ -300,7 +300,7 @@ npx remotion render Carrusel-numero-editorial out/video.mp4
 **Regla (igual que las 6 formas): nunca dos videos seguidos con el mismo
 preset.** Para sumar presets nuevos, agrega una entrada a `PRESETS` en
 `presets.ts` combinando los ejes de otra forma. Para texturas o motions
-nuevos, ampliá `textureStyle` / `motionStyle` en `presets.ts` y `ui.tsx`.
+nuevos, amplía `textureStyle` / `motionStyle` en `presets.ts` y `ui.tsx`.
 
 El contenido (texto de cada slide) vive en `scenes.tsx` y en `COVER` de
 `Carrusel.tsx`; el preset solo cambia cómo se ve y se mueve, no el mensaje.

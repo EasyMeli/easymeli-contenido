@@ -20,7 +20,7 @@ dejas de gastar esfuerzo en lo que no convierte.
 ## Cómo leerla (qué buscar)
 
 Con ~15-20 filas ya aparecen patrones. Mira:
-- **Qué forma** (A-F) trae más DMs concretos → producí más de esa.
+- **Qué forma** (A-F) trae más DMs concretos → produce más de esa.
 - **Qué terreno** (1-5) convierte mejor → priorizalo.
 - **Qué hook / apertura** disparó retención alta → va a `ganadores.md`.
 - **Preset/formato**: ¿el video rinde más que el carrusel para captar? (se

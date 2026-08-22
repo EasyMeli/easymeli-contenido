@@ -96,10 +96,10 @@ primeros 5s, valor en el medio, CTA visual al final._
 **— GANCHO · 0-5s** _(a cámara, 2ª persona: si no vende en ML, que se vaya)_
 > {gancho}
 
-**— VALOR · ~10-15s** _(vendé sin vender: explicá el mecanismo, no el "dónde hacer clic")_
+**— VALOR · ~10-15s** _(vende sin vender: explica el mecanismo, no el "dónde hacer clic")_
 > {valor}
 
-**— CTA FINAL · ~5s** _(SIEMPRE visual: mostrá una captura con una flecha a dónde ir)_
+**— CTA FINAL · ~5s** _(SIEMPRE visual: muestra una captura con una flecha a dónde ir)_
 > {cta}
 
 _En edición: acá va una captura de pantalla real con una flecha/círculo que

@@ -134,4 +134,4 @@ if (!arte.archivo) {
 }
 
 console.log(`✓ Imagen guardada: public/${rel}`);
-console.log(`  Ahora renderizá: node scripts/nuevo-video.mjs ${guionPath}`);
+console.log(`  Ahora renderiza: node scripts/nuevo-video.mjs ${guionPath}`);
