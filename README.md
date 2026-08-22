@@ -42,8 +42,8 @@ Con eso, Claude clona el proyecto, instala todo y te va guiando paso a paso
 Terminal ni creas archivos. Lo único que quizás te pida, solo si te falta, es
 instalar **Node** (nodejs.org) o **Python** (python.org).
 
-> 🔒 El repositorio es **privado**: necesitas que te den acceso en GitHub y tener
-> tu `git` conectado a tu cuenta. Si no puedes clonar, pídele acceso a Gabriel.
+> ✅ El repositorio es **público**: no necesitas cuenta de GitHub ni permisos.
+> Solo tener `git` instalado (viene en Mac; en Windows: git-scm.com).
 
 *(¿Ya tienes la carpeta descargada? También puedes abrir Claude Code dentro de
 ella y escribir **"instala este proyecto"**. Y si prefieres el modo técnico:

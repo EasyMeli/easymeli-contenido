@@ -11,13 +11,13 @@ instala las dependencias) y después sigue con el onboarding. Háblame en
 simple y no me mandes a la Terminal.
 ```
 
-## Acceso (el repo es privado)
-El repositorio vive en `github.com/EasyMeli/easymeli-contenido` y es
-**privado**. Para que alguien pueda clonarlo:
-1. Invítalo como colaborador en GitHub (Settings → Collaborators → Add people).
-2. La persona debe tener su `git` conectado a su cuenta de GitHub.
+## Acceso (el repo es público)
+El repositorio vive en `github.com/EasyMeli/easymeli-contenido` y es **público**:
+cualquiera puede clonarlo **sin cuenta de GitHub y sin invitaciones**. Solo pega
+el comando y listo.
 
-Si algún día lo haces público, el comando funciona para cualquiera sin invitar.
+Si algún día quieres cerrarlo, en GitHub → Settings → Danger Zone puedes volverlo
+privado (ahí sí habría que invitar a cada persona).
 
 ## Qué necesita tener la persona (una sola vez)
 - **Claude Code** instalado.
