@@ -234,6 +234,56 @@ const Footer: React.FC = () => (
   </div>
 );
 
+// ── "VIBE" del video: mezcla según el video ─────────────────────────────
+// En vez de que todos los videos usen los mismos efectos, cada video tiene un
+// "vibe" que decide de golpe: estilo de cámara + qué efectos visuales prenden.
+//   · calmado    → cámara reposada, viñeta + grano, sin flash/shake (premium)
+//   · energetico → cámara dinámica, flash + shake + jump-cut (ritmo TikTok)
+//   · epico      → cámara agresiva, todo al máximo
+//   · auto       → elige uno de los tres por semilla (varía por video, estable)
+export type Vibe = "auto" | "calmado" | "energetico" | "epico";
+type EfectosCfg = { grain: number; vignette: number; flash: boolean; shake: number; jumpCut: boolean; float: number };
+
+const VIBES: Record<Exclude<Vibe, "auto">, { estilo: EstiloCamara; efectos: EfectosCfg }> = {
+  calmado: { estilo: "reposado", efectos: { grain: 0.05, vignette: 0.5, flash: false, shake: 0, jumpCut: false, float: 0.45 } },
+  energetico: { estilo: "dinamico", efectos: { grain: 0.04, vignette: 0.35, flash: true, shake: 0.6, jumpCut: true, float: 0.7 } },
+  epico: { estilo: "agresivo", efectos: { grain: 0.06, vignette: 0.55, flash: true, shake: 1.0, jumpCut: true, float: 0.5 } },
+};
+const hashVibe = (s: string): number => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
+const resolverVibe = (vibe: Vibe, seed: string) => {
+  if (vibe !== "auto") return VIBES[vibe];
+  const keys: Exclude<Vibe, "auto">[] = ["calmado", "energetico", "epico"];
+  return VIBES[keys[hashVibe(seed) % 3]];
+};
+
+// Capa de efectos visuales (encima del footage, debajo de textos): viñeta fija,
+// grano de película animado y flash blanco corto en cada golpe/objeto.
+const EffectsLayer: React.FC<{ efectos: EfectosCfg; punchFrames: number[] }> = ({ efectos, punchFrames }) => {
+  const frame = useCurrentFrame();
+  let flashOp = 0;
+  if (efectos.flash) {
+    for (const cf of punchFrames) {
+      if (frame >= cf - 1 && frame < cf + 4) flashOp = Math.max(flashOp, interpolate(frame, [cf - 1, cf, cf + 4], [0, 0.34, 0], clamp));
+    }
+  }
+  return (
+    <>
+      {efectos.vignette > 0 && (
+        <AbsoluteFill style={{ background: `radial-gradient(125% 115% at 50% 44%, transparent 52%, rgba(3,8,20,${efectos.vignette}) 100%)`, pointerEvents: "none" }} />
+      )}
+      {efectos.grain > 0 && (
+        <AbsoluteFill style={{ opacity: efectos.grain, mixBlendMode: "overlay", pointerEvents: "none" }}>
+          <svg width="100%" height="100%" preserveAspectRatio="none">
+            <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={frame % 90} stitchTiles="stitch" /></filter>
+            <rect width="100%" height="100%" filter="url(#grain)" />
+          </svg>
+        </AbsoluteFill>
+      )}
+      {flashOp > 0 && <AbsoluteFill style={{ background: "#ffffff", opacity: flashOp, pointerEvents: "none" }} />}
+    </>
+  );
+};
+
 // Textos editables del video (se cambian desde el panel de Studio o por --props).
 // Nombres en español para que se lean claros en el panel.
 export type TextosVideo = {
@@ -244,16 +294,18 @@ export type TextosVideo = {
   tamanoLetra: number;
   estiloSubtitulos: "limpio" | "resaltado";
   estiloCamara: EstiloCamara;
+  vibe: Vibe;
 };
 
 export const TEXTOS_DEFAULT: TextosVideo = {
-  tituloArriba: "VENDÉS EN MERCADOLIBRE",
+  tituloArriba: "VENDES EN MERCADOLIBRE",
   tituloAbajo: "Y TU MARGEN NO CIERRA",
   placa: "-20%",
   alturaSubtitulos: 300,
   tamanoLetra: 60,
   estiloSubtitulos: "limpio",
   estiloCamara: "auto",
+  vibe: "auto",
 };
 
 // Footage con efectos de cámara (zoom lento + "punch" periódico) + capas.
@@ -261,25 +313,35 @@ const FootageEditado: React.FC<{ footage: string; footageFrames: number; caption
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const callouts = React.useMemo(() => (captions ? construirCallouts(captions, fps, reglasExtra) : []), [captions, fps, reglasExtra]);
+  const punchFrames = React.useMemo(() => callouts.map((c) => c.atFrame), [callouts]);
+  // "Vibe" del video → decide estilo de cámara + efectos (mezcla por video).
+  const vibeCfg = React.useMemo(() => resolverVibe(textos.vibe ?? "auto", footage), [textos.vibe, footage]);
+  // Un estilo manual (≠ auto) manda sobre el del vibe; si es "auto", decide el vibe.
+  const estilo = textos.estiloCamara && textos.estiloCamara !== "auto" ? textos.estiloCamara : vibeCfg.estilo;
   // Cámara virtual: movimientos que varían por segmento y por video (semilla =
-  // nombre del footage), con golpes de zoom sincronizados a cada objeto/énfasis.
+  // nombre del footage), con golpes/shake/jump-cut sincronizados a la voz.
   const cam = camara({
     seed: footage,
     frame,
     total: footageFrames,
     fps,
-    estilo: textos.estiloCamara,
-    punchFrames: callouts.map((c) => c.atFrame),
+    estilo,
+    punchFrames,
+    float: vibeCfg.efectos.float,
+    shake: vibeCfg.efectos.shake,
+    jumpCut: vibeCfg.efectos.jumpCut,
   });
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{
-transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.scale})`,
+transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.scale}) rotate(${cam.rot}deg)`,
 transformOrigin: "50% 42%",
 color: "#ffffff"
 }}>
         <OffthreadVideo src={staticFile(footage)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </AbsoluteFill>
+      {/* efectos visuales (viñeta, grano, flash) según el vibe */}
+      <EffectsLayer efectos={vibeCfg.efectos} punchFrames={punchFrames} />
       {/* scrim arriba y abajo para que los textos se lean */}
       <AbsoluteFill style={{ background: "linear-gradient(0deg, rgba(6,12,26,0.82) 0%, transparent 24%, transparent 60%, rgba(6,12,26,0.5) 100%)" }} />
       <BrandHeader />
@@ -374,7 +436,8 @@ export const videoHabladoSchema = z.object({
     alturaSubtitulos: z.number().min(120).max(1500).step(10).describe("Altura de los subtítulos (más = más arriba)"),
     tamanoLetra: z.number().min(30).max(120).step(2).describe("Tamaño de letra de los subtítulos"),
     estiloSubtitulos: z.enum(["limpio", "resaltado"]).describe("Estilo de los subtítulos"),
-    estiloCamara: z.enum(["auto", "reposado", "dinamico", "agresivo"]).describe("Movimiento de cámara (auto = varía solo por video)"),
+    estiloCamara: z.enum(["auto", "reposado", "dinamico", "agresivo"]).describe("Movimiento de cámara (auto = lo decide el vibe)"),
+    vibe: z.enum(["auto", "calmado", "energetico", "epico"]).describe("Vibe del video: cámara + efectos (auto = varía solo por video)"),
   }),
   footage: z.string(),
   footageFrames: z.number(),

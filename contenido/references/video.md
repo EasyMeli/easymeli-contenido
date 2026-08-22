@@ -305,6 +305,44 @@ nuevos, amplía `textureStyle` / `motionStyle` en `presets.ts` y `ui.tsx`.
 El contenido (texto de cada slide) vive en `scenes.tsx` y en `COVER` de
 `Carrusel.tsx`; el preset solo cambia cómo se ve y se mueve, no el mensaje.
 
+## Cámara y "vibe" del video hablado (`src/camara.ts`)
+
+El video hablado tiene una **cámara virtual** que mueve el clip fijo como un
+editor pro. La línea de tiempo se parte en segmentos y a cada uno se le asigna
+un movimiento distinto, elegido por semilla (nombre del footage) → cada video se
+mueve diferente pero siempre igual a sí mismo.
+
+**7 movimientos:** acercar (push in), alejar (pull out), paneo izq→der,
+paneo der→izq, deriva diagonal, tilt vertical, dutch (rotación leve). Nunca
+repite el mismo movimiento en dos segmentos seguidos.
+
+**Recursos sincronizados con la voz** (en cada objeto/énfasis): golpe de zoom
+suave (siempre), **jump-cut zoom** (salto seco de acercamiento), **micro-shake**
+de impacto. Más una **flotación handheld** continua para que la imagen respire.
+
+**Efectos visuales** (capa `EffectsLayer` en `VideoHablado.tsx`): viñeta, grano
+de película y flash blanco en el beat.
+
+**El "vibe" decide todo de golpe** (cámara + qué efectos prenden), para mezclar
+según el video:
+
+| Vibe | Cámara | Efectos |
+|---|---|---|
+| `calmado` | reposada | viñeta + grano (premium, sin flash/shake) |
+| `energetico` | dinámica | flash + shake + jump-cut (ritmo TikTok) |
+| `epico` | agresiva | todo al máximo |
+| `auto` (default) | — | elige uno de los tres por semilla (varía por video) |
+
+Se fija por tema en `guion.video.vibe`, o al vuelo:
+
+```bash
+node scripts/ajustar-video.mjs <tema> --vibe energetico
+```
+
+**Regla:** deja `auto` salvo que el tema pida algo puntual (un caso serio →
+`calmado`; un hook de mucha energía → `energetico`/`epico`). `--camara` sigue
+existiendo para forzar solo el movimiento sin tocar los efectos.
+
 ## Layouts de escena reutilizables
 
 Además de las escenas del carrusel de cupones, `scenes.tsx` exporta
