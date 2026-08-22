@@ -1,11 +1,18 @@
 # Instalar desde el chat (runbook para Claude)
 
-Cuando la persona abra Claude Code en esta carpeta y diga algo como "instala
-este proyecto", "configúralo", "déjalo listo" — **haces tú todo el setup por
-detrás con comandos** y le hablas en simple, en "tú", sin tecnicismos. No la
-mandes a la Terminal ni a correr scripts: tú ejecutas.
+La persona te va a llegar de una de dos formas: (a) pegó el **comando mágico**
+en su chat (algo como "clona <repo> e instálalo siguiendo su INSTALAR.md"), o
+(b) ya tiene la carpeta abierta y dice "instala este proyecto". En ambos casos
+**haces tú todo el setup por detrás con comandos** y le hablas en simple, en
+"tú", sin tecnicismos. No la mandes a la Terminal ni a correr scripts: tú
+ejecutas.
 
 ## Pasos (ejecútalos tú, uno por uno)
+
+0. **Si aún no tienes el repo clonado** (caso del comando mágico): clónalo con
+   `git clone <url> EasyMeli-Contenido` en una carpeta razonable (su home o
+   donde esté parada la sesión), entra a esa carpeta y sigue leyendo este
+   archivo desde ahí. Si ya estás dentro del repo, salta este paso.
 
 1. **Saluda y avisa** que lo vas a dejar listo en un par de minutos, sin que
    tenga que tocar nada técnico.

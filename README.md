@@ -24,26 +24,32 @@ guía paso a paso (te pide tus fotos, el contenido, y arma el video por vos).
 
 ---
 
-## 📥 Instalación (una vez, casi todo desde el chat)
+## 📥 Instalación — pega esto en tu chat de Claude Code
 
-### 1. Descarga el proyecto
-- **Opción fácil:** botón verde **Code → Download ZIP**, y descomprímelo.
-- **Con git:** `git clone <url-del-repo>`
+No tienes que descargar ni descomprimir nada a mano. Abre **Claude Code**
+(en cualquier carpeta) y **pega este mensaje en el chat**:
 
-### 2. Ábrelo en Claude Code y pídele que lo instale
-Abre **Claude Code** dentro de la carpeta descargada y escribe:
+```
+Instala la Fábrica de Contenido Easy Meli: clona
+https://github.com/USUARIO/REPO en esta carpeta, lee su archivo INSTALAR.md
+y ejecútalo tal cual (deja la skill lista, crea mi carpeta de trabajo,
+instala las dependencias) y después sigue con el onboarding. Háblame en
+simple y no me mandes a la Terminal.
+```
 
-> **"instala este proyecto"**
-
-Claude hace **todo el setup por ti** (deja la skill lista, crea tu carpeta de
-trabajo, instala lo que hace falta) hablándote en simple. No tienes que tocar la
-Terminal ni correr scripts. Lo único que quizás te pida, solo si te falta, es
+Con eso, Claude clona el proyecto, instala todo y te va guiando paso a paso
+(fotos → clave de Gemini → tu voz → objetos → tu primer video). No tocas la
+Terminal ni creas archivos. Lo único que quizás te pida, solo si te falta, es
 instalar **Node** (nodejs.org) o **Python** (python.org).
 
-*(¿Prefieres el modo técnico? También puedes hacer doble-clic en `instalar.command`
-en Mac, o `bash instalar.sh`. Es opcional.)*
+> 🔑 **Cambia `USUARIO/REPO`** por la dirección real del repositorio (te la pasa
+> quien te compartió esto).
 
-### 3. Tu clave de Gemini
+*(¿Ya tienes la carpeta descargada? También puedes abrir Claude Code dentro de
+ella y escribir **"instala este proyecto"**. Y si prefieres el modo técnico:
+doble-clic en `instalar.command` en Mac, o `bash instalar.sh`.)*
+
+### Tu clave de Gemini
 No hace falta abrir archivos: cuando Claude te la pida en el chat, **pégala ahí**
 y él la guarda solo (sácala en aistudio.google.com/apikey — cada uno la suya).
 
