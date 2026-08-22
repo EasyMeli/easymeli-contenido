@@ -173,7 +173,7 @@ opcional): captura el perfil de voz de escritura de la persona y lo guarda en
 - Para **actualizar** la voz (si su estilo cambió), se repite el proceso de
   `Mi-ADN-VOZ/SKILL.md` y se regenera el JSON.
 
-Lo mismo con las **capturas** del cierre: si manda una, la guardás vos en
+Lo mismo con las **capturas** del cierre: si manda una, la guardas tú en
 `temas/<tema>/capturas/`.
 
 ## Cómo procesar una transcripción
@@ -188,8 +188,8 @@ Lo mismo con las **capturas** del cierre: si manda una, la guardás vos en
 4. Busca las preguntas que hace la gente en vivo. Son dudas reales,
    no temas imaginados.
 5. Descarta lo que está en "Qué nunca se publica" (abajo).
-6. **Antes de proponer hooks/CTAs, consultá `references/ganadores.md`**: si
-   algo que ya convirtió aplica al tema, reusalo o hacé una variante en vez
+6. **Antes de proponer hooks/CTAs, consulta `references/ganadores.md`**: si
+   algo que ya convirtió aplica al tema, reúsalo o haz una variante en vez
    de arrancar de cero.
 
 Entrega una lista de ángulos, no guiones, salvo que los pidan. Para
@@ -205,7 +205,7 @@ crece. De ahí sale el contenido para no parar nunca.
 Cuando el usuario pida **ideas** ("dame ideas de contenido", "qué grabo esta
 semana", "ya no tengo temas"):
 
-1. **Leé todo** lo que haya en `biblioteca/` (cada archivo es una fuente).
+1. **Lee todo** lo que haya en `biblioteca/` (cada archivo es una fuente).
 2. **Multiplicá cada tema en ángulos** con `references/angulos.md` (una clase =
    8-10 piezas: error, mecanismo, cálculo, mito, categoría, caso, comparación,
    objeción…).
@@ -215,10 +215,10 @@ semana", "ya no tengo temas"):
    `references/ganadores.md`; incliná la tanda hacia el tipo de ángulo/forma que
    ya retuvo o trajo signups.
 5. **Balanceá la variedad** con las 6 formas (no dos iguales seguidas).
-6. **Anotá las ideas nuevas** en `banco-de-ideas.md` (estado `idea`), una fila
+6. **Anota las ideas nuevas** en `banco-de-ideas.md` (estado `idea`), una fila
    por ángulo, con su gancho semilla y de qué fuente sale.
 
-Si la biblioteca se siente "cubierta", sumá fuentes que se renuevan solas
+Si la biblioteca se siente "cubierta", suma fuentes que se renuevan solas
 (comentarios/DMs, cambios de ML, resultados de miembros, objeciones,
 estacional) — están listadas en `angulos.md`. El contenido no se agota: cada
 fuente se multiplica y entran fuentes nuevas.
@@ -361,14 +361,14 @@ la base para decidir qué contenido hacer, no adivinar.
 
 ## Clip intro con imagen IA
 
-Al armar un `guion.json`, escribí también `intro.prompt`: un prompt para generar
+Al armar un `guion.json`, escribe también `intro.prompt`: un prompt para generar
 una imagen impactante que abre el video como **clip introductorio animado**
 (zoom/drift/luz) antes de la portada — sube la retención en el primer segundo.
-Seguí la **receta del prompt** de `references/video.md`: una **escena** con un
+Sigue la **receta del prompt** de `references/video.md`: una **escena** con un
 sujeto y profundidad que anime bien (persona/objeto/situación, ej. un vendedor
 de noche aplicando el panel de promociones sin darse cuenta), navy `#0A162E` +
 amarillo `#FFC400`, 9:16, y **sin texto/letras/números/logos** en la imagen.
-Poné `archivo: "ai/<nombre>-intro.png"`. El usuario genera la imagen con
+Pon `archivo: "ai/<nombre>-intro.png"`. El usuario genera la imagen con
 `node scripts/generar-imagen.mjs guiones/<tema>.json` (clave de Google AI Studio
 en `GEMINI_API_KEY`) y luego renderiza normal. Es opcional: sin imagen, el video
 arranca directo en la portada.

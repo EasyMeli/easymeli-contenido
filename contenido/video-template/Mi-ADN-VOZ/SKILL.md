@@ -10,7 +10,7 @@ que la IA usa para replicar el estilo auténtico de la persona. Basado en la ski
 `voice-dna-creator` (GitHub), adaptado a este proyecto: el perfil se guarda en
 `Mi-ADN-VOZ/voice-dna.json` y lo usa la fábrica de contenido.
 
-> **Lenguaje:** háblale a la persona en español neutro con "tú", nunca "vos".
+> **Lenguaje:** háblale a la persona en español neutro con "tú", nunca "tú".
 
 ## Cuándo usarla
 - Al iniciarse en el sistema de contenido (una vez, junto al onboarding).

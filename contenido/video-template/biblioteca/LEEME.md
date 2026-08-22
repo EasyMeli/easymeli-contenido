@@ -2,12 +2,12 @@
 
 Este es el lugar donde vas **acumulando TODO**. No se borra, solo crece.
 Cada vez que tengas la transcripción de una clase, una charla, un live, un
-comentario interesante, una pregunta buena de la comunidad… la dejás acá.
+comentario interesante, una pregunta buena de la comunidad… la dejas acá.
 
 ## Cómo cargar
 - **Un archivo por fuente.** Nombralo por su tema, en minúsculas:
   `cupones-acumulables.txt`, `reputacion-cuenta-nueva.md`, `envios-full.txt`…
-- Formato libre: `.txt` o `.md`. Pegá la transcripción tal cual, no hace falta
+- Formato libre: `.txt` o `.md`. Pega la transcripción tal cual, no hace falta
   ordenarla.
 - Si es una clase larga con varios temas, está bien: el motor de ideas la
   parte en varios ángulos.

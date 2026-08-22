@@ -17,7 +17,7 @@ Cuatro partes, en este orden:
    un caso).
 2. **Mecanismo (1-2 líneas).** El porqué, seco. Nada de paso a paso.
 3. **Tarea (1 línea).** El CTA como tarea, no como pedido. "Anda a tu
-   central de promociones y contá cuántas tienen cupón y promoción a la
+   central de promociones y cuenta cuántas tienen cupón y promoción a la
    vez" rinde más que "escríbeme". El que hace la tarea descubre su
    propio problema y escribe con un diagnóstico concreto.
 4. **Pregunta directa (1 línea).** Cierra con una pregunta que se pueda
@@ -26,7 +26,7 @@ Cuatro partes, en este orden:
 
 Reglas heredadas de la skill:
 - Tuteo chileno-venezolano. Nunca voseo (nada de "fíjate" está bien;
-  "fijate" no).
+  "fíjate" no).
 - Sin escasez fabricada (cupos, "cierra el jueves").
 - La comunidad se menciona sin venderla: de dónde salió, resultado de
   otra persona, algo que era interno. Nunca "miembro de mi comunidad";
@@ -42,7 +42,7 @@ Reglas heredadas de la skill:
 > Ese 20% sale de tu margen, no del de MercadoLibre.
 >
 > Antes de seguir subiendo cupones: entra a tu central de promociones y
-> contá cuántas publicaciones tienen cupón Y promoción activa al mismo
+> cuenta cuántas publicaciones tienen cupón Y promoción activa al mismo
 > tiempo. Ahí está la plata que se te va sin verla.
 >
 > ¿Cuántas te aparecieron? 👇

@@ -4,7 +4,7 @@
 // clips con transiciones pro, saca la duración, genera la intro (si falta),
 // extrae el audio, transcribe (whisper) y renderiza el video.
 //
-//   1) Grabás 1 o varios clips y los dejás en  temas/<tema>/grabaciones/
+//   1) Grabas 1 o varios clips y los dejas en  temas/<tema>/grabaciones/
 //   2) node scripts/producir-hablado.mjs <tema>        (ej: cupones)
 //
 // Flags: --sin-imagen (no toca Gemini)  ·  --re-subs (rehace la transcripción)
@@ -32,7 +32,7 @@ const run = (label, cmd, a) => {
 
 // 1) Clips del tema → combinarlos (con transiciones si hay varios) a public/
 const clips = clipsDeTema(grabacionesDir);
-if (clips.length === 0) die(`No hay grabaciones en ${grabacionesDir}/ (dejá ahí tu clip como 1.mp4).`);
+if (clips.length === 0) die(`No hay grabaciones en ${grabacionesDir}/ (deja ahí tu clip como 1.mp4).`);
 mkdirSync(resolve("public/grabaciones"), { recursive: true });
 const pub = resolve("public/grabaciones", `${nombre}.mp4`);
 console.log(`▶ ${clips.length} clip(s) en ${grabacionesDir}/`);
@@ -81,7 +81,7 @@ if (existsSync(capturasDir)) {
 
 // 7) Render del video hablado
 const DEFAULT_TEXTOS = {
-  tituloArriba: "VENDÉS EN MERCADOLIBRE", tituloAbajo: "Y TU MARGEN NO CIERRA",
+  tituloArriba: "VENDES EN MERCADOLIBRE", tituloAbajo: "Y TU MARGEN NO CIERRA",
   placa: "-20%", alturaSubtitulos: 300, tamanoLetra: 60,
   estiloSubtitulos: "limpio", estiloCamara: "auto",
 };

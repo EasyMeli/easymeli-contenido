@@ -3,7 +3,7 @@
 // + corto de 10s + carrusel + post de Skool + descripción de TikTok.
 // Cero tokens de Claude.
 //
-//   1) Grabás y guardás en  grabaciones/<tema>.mp4
+//   1) Grabas y guardas en  grabaciones/<tema>.mp4
 //   2) node scripts/todo.mjs guiones/<tema>.json
 //
 // Flags: se pasan a producir-hablado (--sin-imagen, --re-subs).
@@ -54,7 +54,7 @@ run("Carrusel", "python3", [`${SKILL}/scripts/generar_carrusel.py`, guionPath], 
 // 4) Post de Skool
 run("Post de Skool", "python3", [`${SKILL}/scripts/post_skool.py`, guionPath, "--out", `${outDir}/${nombre}-skool.md`]);
 
-// 4.5) Teleprompter (lo que decís a cámara, ~20-30s)
+// 4.5) Teleprompter (lo que dices a cámara, ~20-30s)
 run("Teleprompter", "python3", [`${SKILL}/scripts/teleprompter.py`, guionPath, "--out", `${outDir}/${nombre}-teleprompter.md`]);
 
 // 5) Descripción + hashtags de TikTok
@@ -67,4 +67,4 @@ if (guion.publicacion) {
 console.log(`\n\n═══ RESUMEN "${nombre}" ═══`);
 for (const p of pasos) console.log(`  ${p.ok ? "✓" : "✗"} ${p.label}`);
 console.log(`\nTodo en la carpeta  ${outDir}/  →  ${nombre}-hablado.mp4 · ${nombre}-corto.mp4 · 01…06-*.png · ${nombre}-skool.md · ${nombre}-teleprompter.md · ${nombre}-tiktok.txt`);
-console.log(pasos.every((p) => p.ok) ? "\n✅ TODO listo para subir." : "\n⚠ Revisá los pasos con ✗.");
+console.log(pasos.every((p) => p.ok) ? "\n✅ TODO listo para subir." : "\n⚠ Revisa los pasos con ✗.");

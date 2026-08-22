@@ -1,12 +1,12 @@
-// Saca el LIBRETO (lo que decís a cámara) ANTES de grabar. Necesita solo el
+// Saca el LIBRETO (lo que dices a cámara) ANTES de grabar. Necesita solo el
 // guion — NO necesita el video. Lo imprime en pantalla y lo guarda en out/<tema>/.
 //
 //   npm run libreto -- cupones
 //
 // Flujo pensado:
-//   1) Le pegás una transcripción de clase a Claude → te arma temas/<tema>/<tema>.json
-//   2) npm run libreto -- <tema>       ← leés esto y grabás
-//   3) Guardás tus clips en temas/<tema>/grabaciones/
+//   1) Le pegas una transcripción de clase a Claude → te arma temas/<tema>/<tema>.json
+//   2) npm run libreto -- <tema>       ← leés esto y grabas
+//   3) Guardas tus clips en temas/<tema>/grabaciones/
 //   4) npm run todo -- <tema>          ← arma todo lo demás
 import { spawnSync } from "node:child_process";
 import { mkdirSync } from "node:fs";

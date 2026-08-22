@@ -1,4 +1,4 @@
-"""Teleprompter — el TEXTO QUE DECÍS A CÁMARA, derivado del mismo guion.json.
+"""Teleprompter — el TEXTO QUE DICES A CÁMARA, derivado del mismo guion.json.
 
 Sigue la estructura de venta de references/guion-grabacion.md (gancho filtra →
 valor sin vender → CTA visual), apuntando a ~60-80 palabras habladas (~20-30s).
@@ -43,7 +43,7 @@ def teleprompter(path):
         amenaza = g.get("portada", {}).get("amenaza", [])
         titulo_gancho = " ".join(l["text"] for l in amenaza) if amenaza else tema.upper()
 
-    micro_cta = grab.get("microCta", "Guardá este video.")
+    micro_cta = grab.get("microCta", "Guarda este video.")
 
     # ── Gancho hablado (0-5s): filtra al cliente ideal en 2ª persona ──
     gancho = grab.get("gancho")
@@ -83,7 +83,7 @@ def teleprompter(path):
 
     md = f"""# 🎬 Guion de grabación — {tema}
 
-_Lo que decís a cámara. Apuntá a 20-30s (~60-80 palabras). Gancho en los
+_Lo que dices a cámara. Apuntá a 20-30s (~60-80 palabras). Gancho en los
 primeros 5s, valor en el medio, CTA visual al final._
 {aviso}
 ## En pantalla (texto sobreimpreso)
@@ -91,7 +91,7 @@ primeros 5s, valor en el medio, CTA visual al final._
 - **TÍTULO GANCHO** (~6s, arriba, letra grande): `{titulo_gancho}`
 - **MICRO-CTA** (chip temprano): `{micro_cta}`
 
-## Lo que decís
+## Lo que dices
 
 **— GANCHO · 0-5s** _(a cámara, 2ª persona: si no vende en ML, que se vaya)_
 > {gancho}

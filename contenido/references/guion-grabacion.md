@@ -1,4 +1,4 @@
-# Guion de grabación (lo que decís a cámara)
+# Guion de grabación (lo que dices a cámara)
 
 Cuando el usuario va a **grabarse él** hablando de una clase, la skill le
 entrega este guion: el texto que lee a cámara + los textos que van en pantalla.
@@ -22,13 +22,13 @@ Hablarle SOLO al cliente ideal. Tres piezas que trabajan juntas:
 - **Título gancho** (texto en pantalla, se ve al inicio, dura ~6s, letra clara
   y grande): una de estas tres jugadas —
   - curiosidad ("Le estás regalando plata a MercadoLibre"),
-  - un dolor puntual del cliente ideal ("Tu margen no cierra y no sabés por qué"),
+  - un dolor puntual del cliente ideal ("Tu margen no cierra y no sabes por qué"),
   - o un resultado que desea ("Cómo dejar de perder 20% en cada venta").
   Va reforzado por la frase gancho hablada.
-- **Frase gancho** (lo que decís en voz en los primeros 5s): en 2ª persona,
+- **Frase gancho** (lo que dices en voz en los primeros 5s): en 2ª persona,
   nombra al cliente ideal y el dolor/curiosidad. Filtra: si no vende en ML, se
   va (y está bien).
-- **Micro-CTA temprano** (adecuado al gancho): "guardá este video", "comentá
+- **Micro-CTA temprano** (adecuado al gancho): "guarda este video", "comenta
   [PALABRA]", o "el link está en mi perfil". Corto, uno solo.
 
 ### 2. Valor — vender sin vender
@@ -62,7 +62,7 @@ llevar al Skool (link en perfil / comentar una palabra). Sin miedo, funciona.
   display, grande, clara).
 - El **micro-CTA** = chip/lower-third de marca que aparece temprano.
 - El **valor** = tu clip hablando + subtítulos automáticos + elementos de marca
-  flotando (chips de dato, mini-tarjetas, flechas) que refuerzan lo que decís.
+  flotando (chips de dato, mini-tarjetas, flechas) que refuerzan lo que dices.
 - El **CTA final** = captura real en pantalla con flecha/resalte animado
   (círculo que pulsa) señalando exactamente a dónde ir.
 

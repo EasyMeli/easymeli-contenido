@@ -1,5 +1,5 @@
 // Genera las imágenes CON TU ROSTRO para el carrusel (portada + cierre), usando
-// las fotos de referencia (referencias/) para que el personaje seas VOS.
+// las fotos de referencia (referencias/) para que el personaje seas TÚ.
 // Salen en 9:16 y con "espacio negativo" arriba para que el titular se lea.
 //   node scripts/carrusel-rostro.mjs guiones/cupones.json
 //   node scripts/carrusel-rostro.mjs guiones/cupones.json --force

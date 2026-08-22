@@ -43,17 +43,17 @@ if (!existsSync(guionPath)) die(`No existe el archivo: ${guionPath}`);
 const key = process.env.GEMINI_API_KEY;
 if (!key) {
   die(
-    "Falta la clave GEMINI_API_KEY. Pegala en el archivo .env:\n" +
+    "Falta la clave GEMINI_API_KEY. Pégala en el archivo .env:\n" +
       "    GEMINI_API_KEY=tu-clave-de-ai-studio\n" +
       "  (o exportala: export GEMINI_API_KEY=\"...\")\n" +
-      "  La sacás de https://aistudio.google.com/apikey (con facturación habilitada para imágenes)."
+      "  La sacas de https://aistudio.google.com/apikey (con facturación habilitada para imágenes)."
   );
 }
 
 const guion = JSON.parse(readFileSync(guionPath, "utf8"));
 const arte = guion?.intro;
 if (!arte?.prompt) {
-  die(`El guion no tiene intro.prompt. Agregá el prompt de la imagen en ${basename(guionPath)}.`);
+  die(`El guion no tiene intro.prompt. Agrega el prompt de la imagen en ${basename(guionPath)}.`);
 }
 
 const nombre = basename(guionPath).replace(/\.json$/i, "");
@@ -113,7 +113,7 @@ const resp = await fetch(url, {
 
 if (!resp.ok) {
   const t = await resp.text();
-  die(`La API respondió ${resp.status}. Revisá clave/cuota/modelo.\n${t.slice(0, 400)}`);
+  die(`La API respondió ${resp.status}. Revisa clave/cuota/modelo.\n${t.slice(0, 400)}`);
 }
 
 const data = await resp.json();
@@ -122,7 +122,7 @@ const img = parts.find((p) => p.inlineData?.data || p.inline_data?.data);
 const b64 = img?.inlineData?.data || img?.inline_data?.data;
 if (!b64) {
   const txt = parts.map((p) => p.text).filter(Boolean).join(" ");
-  die(`El modelo no devolvió imagen.${txt ? ` Dijo: ${txt.slice(0, 200)}` : " Probá otro modelo con --model."}`);
+  die(`El modelo no devolvió imagen.${txt ? ` Dijo: ${txt.slice(0, 200)}` : " Prueba otro modelo con --model."}`);
 }
 
 writeFileSync(dest, Buffer.from(b64, "base64"));

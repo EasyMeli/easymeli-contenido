@@ -1,4 +1,4 @@
-// Tablero de contenido: cuánto conocimiento tenés cargado, cuánto produjiste y
+// Tablero de contenido: cuánto conocimiento tienes cargado, cuánto produjiste y
 // cuánto queda pendiente en el banco de ideas. Da la foto de "nunca parar".
 //   npm run estado
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
@@ -46,6 +46,6 @@ if (bib.length) {
   console.log(`  ✨ Potencial estimado: ~${potencial} piezas (${bib.length} fuentes × ~9 ángulos)`);
   console.log(`     Ya en juego: ${cubierto} · anotadas sin producir: ${ideas} · sin explorar: ~${restante}`);
 } else {
-  console.log(`  ⚠ Biblioteca vacía. Dejá transcripciones en biblioteca/ para arrancar.`);
+  console.log(`  ⚠ Biblioteca vacía. Deja transcripciones en biblioteca/ para arrancar.`);
 }
-console.log(`\n  Para ideas nuevas: pedile a Claude "dame ideas de contenido".\n`);
+console.log(`\n  Para ideas nuevas: pídele a Claude "dame ideas de contenido".\n`);

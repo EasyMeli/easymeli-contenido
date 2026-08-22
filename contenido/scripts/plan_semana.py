@@ -187,7 +187,7 @@ def plan(semana, piezas, path=BITACORA):
                  f"`python3 scripts/generar_carrusel.py`, `--corto`, o `post_skool.py`.")
     L.append("- Nunca dos formas ni dos presets iguales en días seguidos (ya está "
              "resuelto arriba).")
-    L.append("- Al publicar cada pieza → agregá su fila a `bitacora.md`.")
+    L.append("- Al publicar cada pieza → agrega su fila a `bitacora.md`.")
     return "\n".join(L)
 
 

@@ -5,7 +5,7 @@ entrada sale de `bitacora.md` con su métrica: no se anota una corazonada,
 se anota lo que trajo retención alta, guardados, DMs concretos o signups.
 
 **Cómo se usa:** antes de proponer un hook, un sonido o un CTA nuevos,
-mirá acá primero. Si algo de esta lista aplica al tema, reusalo o hacé una
+mira acá primero. Si algo de esta lista aplica al tema, reúsalo o haz una
 variante — no arranques de cero. **Cómo se llena:** cuando una fila de la
 bitácora demuestre que algo pegó (a los 3-7 días, con métricas ya
 estables), subilo acá con el dato que lo respalda.

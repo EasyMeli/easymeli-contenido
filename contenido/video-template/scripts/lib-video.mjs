@@ -37,7 +37,7 @@ export function combinarClips(clips, salida) {
 
   const bin = ffmpegSistema();
   if (!bin) {
-    console.warn("  ⚠ Para unir varios clips con transiciones necesitás ffmpeg (instalalo con: brew install ffmpeg).");
+    console.warn("  ⚠ Para unir varios clips con transiciones necesitas ffmpeg (instálalo con: brew install ffmpeg).");
     console.warn("    Por ahora uso solo el primer clip para no romper el flujo.");
     copyFileSync(clips[0], salida);
     return { transiciones: 0, aviso: "sin-ffmpeg" };

@@ -1,25 +1,25 @@
 # Bitácora de contenido
 
 Registro de cada pieza publicada y cómo rindió. Sin esto, decidir qué
-producir es adivinar. Con esto, duplicás lo que trae gente al Skool y
-dejás de gastar esfuerzo en lo que no convierte.
+producir es adivinar. Con esto, duplicas lo que trae gente al Skool y
+dejas de gastar esfuerzo en lo que no convierte.
 
 ## El ritual
 
-- **Al publicar:** agregá una fila con lo que sabés (fecha, pieza, forma,
+- **Al publicar:** agrega una fila con lo que sabes (fecha, pieza, forma,
   terreno, preset, formato, hook).
-- **A los 3-7 días:** completá las métricas (vistas, retención, guardados,
+- **A los 3-7 días:** completa las métricas (vistas, retención, guardados,
   DMs, signups). Ahí ya se estabilizaron.
 - **Los DMs se anotan por tipo**, no solo cantidad: `vagos` ("quiero
   aprender a vender") vs. `concretos` ("creo que me pusieron la clase 35").
   El concreto es el que compra. La proporción v/c dice si el contenido
   está calificando o solo informando.
-- **Cuando alguien escriba, preguntale qué video vio** → así sabés a qué
+- **Cuando alguien escriba, preguntale qué video vio** → así sabes a qué
   fila atribuir el DM/signup.
 
 ## Cómo leerla (qué buscar)
 
-Con ~15-20 filas ya aparecen patrones. Mirá:
+Con ~15-20 filas ya aparecen patrones. Mira:
 - **Qué forma** (A-F) trae más DMs concretos → producí más de esa.
 - **Qué terreno** (1-5) convierte mejor → priorizalo.
 - **Qué hook / apertura** disparó retención alta → va a `ganadores.md`.
@@ -52,6 +52,6 @@ las próximas piezas lo reusen.
      de cupones cuando aparezca. -->
 
 <!--
-Plantilla de fila (copiá y llená):
+Plantilla de fila (copia y llena):
 | AAAA-MM-DD | título corto | forma | terreno | preset | formato | hook textual | vistas | ret% | guard | v/c | n | nota |
 -->

@@ -9,12 +9,12 @@ para TikTok (video, carrusel, corto y post), todas con el estilo de tu marca.
 
 ## La idea, con una comparación
 
-Pensá en una **cocina**. Vos traés el ingrediente principal (el tema). La skill
+Pensá en una **cocina**. Tú traes el ingrediente principal (el tema). La skill
 es el **chef**: sigue una receta y te saca varios platos con el mismo ingrediente
-(un video, un carrusel de imágenes, un corto, un post). Vos solo **servís** (lo
-subís a TikTok). No tenés que cocinar tú: solo elegir el ingrediente.
+(un video, un carrusel de imágenes, un corto, un post). Tú solo **sirves** (lo
+subes a TikTok). No tienes que cocinar tú: solo elegir el ingrediente.
 
-## Lo que TÚ entregás (los ingredientes)
+## Lo que TÚ entregas (los ingredientes)
 
 Solo dos cosas:
 
@@ -25,7 +25,7 @@ Solo dos cosas:
 2. **(Una sola vez) Tu llave y tus fotos:**
    - **La llave de Google** (API key): ya la pegaste en el archivo `.env`. ✅
    - **Tus fotos**: 3 a 6 fotos tuyas en la carpeta `referencias/`, para que en
-     los videos aparezcas **vos** y no un desconocido. ⬜ (esto falta)
+     los videos aparezcas **tú** y no un desconocido. ⬜ (esto falta)
 
 Eso es todo lo que sale de tu lado. El resto lo hace la máquina.
 
@@ -46,10 +46,10 @@ Eso es todo lo que sale de tu lado. El resto lo hace la máquina.
 ## El paso a paso para hacer UN video
 
 La división del trabajo: **Claude hace lo creativo una vez** (elige el ángulo y
-escribe el guion desde la clase). **Vos disparás lo mecánico con UN comando**
+escribe el guion desde la clase). **Tú disparas lo mecánico con UN comando**
 (no gasta tokens de Claude):
 
-1. **Tema** → me pasás la clase; yo te dejo el `guiones/<tema>.json` listo.
+1. **Tema** → me pasas la clase; yo te dejo el `guiones/<tema>.json` listo.
 2. **UN comando produce todo:**
    `npm run producir -- guiones/<tema>.json`
    → genera imagen + video + corto + carrusel + post + descripción de TikTok.
@@ -57,11 +57,11 @@ escribe el guion desde la clase). **Vos disparás lo mecánico con UN comando**
    `--sin-imagen`, `--imagen` para rehacerla, `--preset numero`.)
 3. Todo queda en `out/`: `<tema>.mp4`, `<tema>-corto.mp4`, las PNG del carrusel,
    `<tema>-skool.md`, `<tema>-tiktok.txt` (descripción + hashtags).
-4. **Subís a TikTok** y, dentro de la app, le ponés un **sonido que esté de
+4. **Subes a TikTok** y, dentro de la app, le pones un **sonido que esté de
    moda** (eso ayuda al alcance y no se puede meter desde afuera).
-5. Después de subir, **anotás cómo le fue** en la bitácora.
+5. Después de subir, **anotas cómo le fue** en la bitácora.
 
-> Si querés correr una pieza suelta: `npm run nuevo -- guiones/x.json` (solo el
+> Si quieres correr una pieza suelta: `npm run nuevo -- guiones/x.json` (solo el
 > video), `--corto` (solo el corto), o los scripts python del carrusel/post.
 
 ## Lo que se configura una sola vez
@@ -78,11 +78,11 @@ escribe el guion desde la clase). **Vos disparás lo mecánico con UN comando**
 
 ## Tu checklist
 
-- [ ] Poné tus **fotos** en `referencias/` (3 a 6, varios ángulos).
+- [ ] Pon tus **fotos** en `referencias/` (3 a 6, varios ángulos).
 - [ ] Decime el **tema** (o pasame la clase).
 - [ ] Yo genero **imagen + video + carrusel + corto + post**.
-- [ ] **Subís a TikTok** + sonido de moda.
-- [ ] **Anotás** los resultados en la bitácora.
+- [ ] **Subes a TikTok** + sonido de moda.
+- [ ] **Anotas** los resultados en la bitácora.
 
 Y listo. Tu trabajo real es elegir el tema, subir, y poner el sonido. Todo lo
 demás lo hace la máquina.
@@ -96,7 +96,7 @@ ENTRA:  clase (transcripción)  +  [tu clip grabado]  +  [tus fotos]
    │
    ├─ 1. Ángulo + guion (contenido en un archivo) .............. ✅ listo
    ├─ 2. Guion de grabación (lo que leés a cámara) ............. ✅ listo (método)
-   │        → grabás vos con ese libreto
+   │        → grabas tú con ese libreto
    ├─ 3. Imagen intro con tu cara (Gemini, 9:16) .............. ✅ listo*
    ├─ 4. VIDEO:
    │      • automático (escenas de datos + intro + música) .... ✅ listo
@@ -107,7 +107,7 @@ ENTRA:  clase (transcripción)  +  [tu clip grabado]  +  [tus fotos]
    ├─ 7. Post de Skool ....................................... ✅ listo
    └─ 8. Descripción + hashtags .............................. ✅ listo
    │
-SALE:  piezas listas → subís a TikTok + sonido de moda → anotás en bitácora
+SALE:  piezas listas → subes a TikTok + sonido de moda → anotas en bitácora
 ```
 \* la intro funciona ya; falta que cargues tus fotos en `referencias/` para que
 sea TU cara.
@@ -121,6 +121,6 @@ sea TU cara.
 **Entonces: ¿está lista?**
 - La **máquina de contenido automático** (video sin grabarte, carrusel, corto,
   post, descripción, plan, medición): **SÍ, lista y probada.**
-- La parte de **grabarte vos y que edite TU video** (Fase 6): **falta construir**
+- La parte de **grabarte tú y que edite TU video** (Fase 6): **falta construir**
   — es el próximo bloque grande (template de footage + subtítulos automáticos +
   carrusel con tu cara + teleprompter).

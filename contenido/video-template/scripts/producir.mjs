@@ -51,7 +51,7 @@ if (g.intro?.prompt) {
   if (has("--sin-imagen")) {
     console.log(`\n(omito la imagen por --sin-imagen)`);
   } else if (existe && !has("--imagen")) {
-    console.log(`\n(imagen ya existe: public/${rel} — no la regenero. Usá --imagen para rehacerla.)`);
+    console.log(`\n(imagen ya existe: public/${rel} — no la regenero. Usa --imagen para rehacerla.)`);
   } else {
     run("Imagen intro (Gemini ~US$0,04)", "node", ["scripts/generar-imagen.mjs", guionPath]);
   }
@@ -86,5 +86,5 @@ console.log(`\n\n═══ RESUMEN de "${nombre}" ═══`);
 for (const p of pasos) console.log(`  ${p.ok ? "✓" : "✗"} ${p.label}`);
 console.log(`\nArchivos en out/:  ${nombre}.mp4 · ${nombre}-corto.mp4 · NN-*.png (carrusel) · ${nombre}-skool.md · ${nombre}-tiktok.txt`);
 const fallo = pasos.some((p) => !p.ok);
-console.log(fallo ? "\n⚠ Algún paso falló (mirá arriba)." : "\n✅ Todo listo para subir.");
+console.log(fallo ? "\n⚠ Algún paso falló (mira arriba)." : "\n✅ Todo listo para subir.");
 process.exit(fallo ? 1 : 0);

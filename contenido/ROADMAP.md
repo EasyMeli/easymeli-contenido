@@ -125,7 +125,7 @@ adivinar. Es la recomendación #2, primero porque es barata y alimenta al
 resto.
 
 **Por qué hace crecer la comunidad:** deja de repartir esfuerzo parejo.
-Ves qué forma/terreno/hook trae DMs concretos y signups, y duplicás eso.
+Ves qué forma/terreno/hook trae DMs concretos y signups, y duplicas eso.
 
 **Pasos:**
 1. Crear `references/bitacora.md` con una fila por pieza publicada.
@@ -152,7 +152,7 @@ editar un `.json` y correr `npm run nuevo -- guiones/<tema>.json`.
 editar código. Recomendación #1.
 
 **Por qué hace crecer la comunidad:** TikTok premia el volumen constante.
-Si un video pasa de ~30 min a ~5, subís de 2 a 5+ por semana con la misma
+Si un video pasa de ~30 min a ~5, subes de 2 a 5+ por semana con la misma
 calidad. Más piezas = más alcance = más gente al Skool. Es el mayor
 multiplicador que queda.
 
@@ -188,7 +188,7 @@ Del mismo `guion.json` salen video, corto, carrusel y post de Skool.
 **Objetivo:** que del mismo `guion.json` salgan **video + carrusel + corto
 de 10s + post del Skool**. Recomendación #3.
 
-**Por qué hace crecer la comunidad:** cuadruplicás la presencia sin
+**Por qué hace crecer la comunidad:** cuadruplicas la presencia sin
 cuadruplicar el trabajo. Cada clase rinde 4 puertas de entrada en vez de 1.
 
 **Pasos:**
@@ -282,7 +282,7 @@ No entran en las 5 fases, pero valen para cuando toque:
   DEFINIDA 19-ago).** PIVOTE: el video principal ya NO es el automático de
   placas (ese pasa a ser opcional/fallback y sigue alimentando el carrusel).
   Ahora el video principal es **el usuario hablando a cámara**, editado, y es el
-  único que se edita como tal. Estilo elegido: **"Vos + placas de refuerzo"** —
+  único que se edita como tal. Estilo elegido: **"Tú + placas de refuerzo"** —
   su footage con subtítulos animados + las placas gráficas (gancho, -20%,
   tarea, reusando los componentes de `scenes.tsx`/`Escena.tsx`) superpuestas en
   los momentos clave + elementos de marca flotando (ver `FloatDemo.tsx`, versión
@@ -326,7 +326,7 @@ No entran en las 5 fases, pero valen para cuando toque:
     (`captionsFile`, servido de `public/captions/`), NO como lista en props —
     eso rompía el SchemaEditor. Guardar-a-código no funciona (defaultProps no
     extraíble); se usa el botón Render o se fijan valores en `TEXTOS_DEFAULT`.
-  - ✅ Subtítulos corregidos (margen/cupón/VENDÉS) — son editables en el .json.
+  - ✅ Subtítulos corregidos (margen/cupón/VENDES) — son editables en el .json.
   - ✅ **Comando único `npm run todo -- guiones/<tema>.json`** (`scripts/todo.mjs`):
     video hablado + corto + carrusel + post + descripción, de una.
 
@@ -358,7 +358,7 @@ No entran en las 5 fases, pero valen para cuando toque:
     **Comando pre-grabación `npm run libreto -- guiones/<tema>.json`**
     (`scripts/libreto.mjs`): lo imprime en pantalla ANTES de grabar (no necesita
     el video). Corrige el orden real del flujo: transcripción → Claude arma el
-    guion → `npm run libreto` (leés y grabás) → `npm run todo` (arma el resto).
+    guion → `npm run libreto` (leés y grabas) → `npm run todo` (arma el resto).
     También sale dentro de `todo.mjs`.
   - ✅ **(c) Whisper `small`** ya era el default de `transcribir.mjs` (modelo
     bajado); la nota anterior estaba vieja. Subtítulos con mejor precisión.
@@ -366,11 +366,11 @@ No entran en las 5 fases, pero valen para cuando toque:
     (alturaSubtitulos, tamanoLetra, estiloSubtitulos, estiloCamara, títulos,
     placa). `producir-hablado.mjs` los mergea sobre los defaults y los pasa al
     render. Helper `scripts/ajustar-video.mjs` los escribe desde la terminal
-    (ej. `--camara agresivo --subs-altura 340`). Lo que probás en Studio se
+    (ej. `--camara agresivo --subs-altura 340`). Lo que pruebas en Studio se
     guarda como dato, no se pierde.
 
   **AVANCE 20-ago (bloque 5):**
-  - ✅ **(f) CTA final VISUAL** — `CTACaptura` en `VideoHablado.tsx`: si dejás
+  - ✅ **(f) CTA final VISUAL** — `CTACaptura` en `VideoHablado.tsx`: si dejas
     `public/capturas/<tema>.png`, el cierre muestra la captura enmarcada con una
     flecha que rebota + anillo que pulsa apuntando al target (regla de
     guion-grabacion.md). Fallback automático a la tarjeta de texto si no hay

@@ -15,7 +15,7 @@ Para arrancar un video nuevo:
 ```bash
 cp -R ~/.claude/skills/contenido/video-template ./mi-video
 cd mi-video && npm install
-npm run dev        # estudio en vivo: previsualizás los 3 presets
+npm run dev        # estudio en vivo: previsualizas los 3 presets
 npm run render     # exporta el preset por defecto (amenaza) a out/video.mp4
 ```
 
@@ -244,7 +244,7 @@ La clave se lee de `.env`/entorno; nunca se hardcodea.
 (hasta 5) al pedido de Gemini, y antepone al prompt una instrucción para que el
 personaje de la escena sea la MISMA persona de las fotos (misma cara/identidad).
 Nano Banana está hecho para esto (character consistency). Las fotos son
-privadas: quedan locales, van solo a la API cuando generás, y están
+privadas: quedan locales, van solo a la API cuando generas, y están
 gitignoreadas (`referencias/*`, ver `referencias/LEEME.md` para qué fotos
 usar). Sin fotos, avisa y genera un personaje genérico. El prompt del guion
 describe la escena en tercera persona neutra ("La persona…"); la identidad la
@@ -298,7 +298,7 @@ npx remotion render Carrusel-numero-editorial out/video.mp4
 ```
 
 **Regla (igual que las 6 formas): nunca dos videos seguidos con el mismo
-preset.** Para sumar presets nuevos, agregá una entrada a `PRESETS` en
+preset.** Para sumar presets nuevos, agrega una entrada a `PRESETS` en
 `presets.ts` combinando los ejes de otra forma. Para texturas o motions
 nuevos, ampliá `textureStyle` / `motionStyle` en `presets.ts` y `ui.tsx`.
 
@@ -318,7 +318,7 @@ layouts prop-driven para variar la estructura entre videos:
   skill: el autor es "un amigo, ...", nunca un nombre identificable. Demo:
   composición `DemoQuote`.
 
-Sumá layouts nuevos como componentes que reciban su texto por props y
+Suma layouts nuevos como componentes que reciban su texto por props y
 usen `SceneBg` + `Header` + `Stage` + `Footer` (el `Stage` garantiza la
 separación). Las texturas de fondo (`grid`, `diagonal`, `dots`) son
 visibles pero suaves — no compiten con el texto.
@@ -337,12 +337,12 @@ puede animar entera (zoom/paneo) — se pierde el motion por elemento
 
 Flujo:
 
-1. En Canva, diseñá/elegí el elemento aislado (o encuadrá una captura de
+1. En Canva, diseña/elige el elemento aislado (o encuadra una captura de
    ML dentro de un mockup de celular).
 2. Exportá como **PNG con fondo transparente** (`export-design` lo
    soporta: `transparent_background: true`).
-3. Descargá el PNG a `public/canva/`.
-4. Usalo con `AssetLayer` (`src/assets.tsx`): posición, tamaño, entrada
+3. Descarga el PNG a `public/canva/`.
+4. Úsalo con `AssetLayer` (`src/assets.tsx`): posición, tamaño, entrada
    animada (fade+escala), flotación y parallax. Ejemplo en
    `src/AssetDemo.tsx` (composición `AssetDemo`).
 
@@ -364,7 +364,7 @@ esas capturas. Herramientas MCP de Canva disponibles: `generate-design`,
 Algún linter/hook del proyecto inyecta props inválidos `durationInFrames`
 en el JSX al guardar `.tsx`. En runtime se ignoran (Remotion usa esbuild,
 no chequea tipos) y **no rompen el render**, pero ensucian el código. Si
-ves errores de TypeScript al editar, ese es el origen: borrá esos props.
+ves errores de TypeScript al editar, ese es el origen: borra esos props.
 
 ## Comandos
 

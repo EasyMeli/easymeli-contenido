@@ -23,7 +23,7 @@ chiquita, mientras el dedo ya baja. Reglas de portada, probadas:
 
 - **Un solo foco.** Una portada = una idea visual. Nada de apilar tres
   números + una operación + un titular: en miniatura eso es ruido y el
-  ojo no se fija en nada. Si querés mostrar la matemática (10%+10%=20%),
+  ojo no se fija en nada. Si quieres mostrar la matemática (10%+10%=20%),
   va en la slide 2, no en la portada.
 - **Lidera con la tensión, no con la respuesta.** Un número grande con
   "%" se lee como promo de vendedor, y la promo se scrollea. Lo que para
@@ -33,7 +33,7 @@ chiquita, mientras el dedo ya baja. Reglas de portada, probadas:
   en la palabra clave del gancho. Badge y contador se sacan.
 - **Branding mínimo.** Logo chico arriba y el handle abajo, nada más. El
   gancho se lleva el frame entero. La marca fuerte va en las internas.
-- **Validá en miniatura.** Antes de publicar, mirá la portada reducida al
+- **Valida en miniatura.** Antes de publicar, mira la portada reducida al
   tamaño del feed y entrecerrá los ojos. Si el gancho se lee así, sirve.
 
 El generador trae esto como componente `cover_threat` (ver abajo).
@@ -151,4 +151,4 @@ Recursos visuales que ya funcionaron:
 
 Abre cada PNG y míralo. Los choques de texto no aparecen hasta que se
 ve la imagen renderizada. El auto-ajuste evita los desbordes de ancho,
-pero revisá igual el apilado vertical y la portada en miniatura.
+pero revisa igual el apilado vertical y la portada en miniatura.
