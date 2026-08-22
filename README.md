@@ -31,7 +31,7 @@ No tienes que descargar ni descomprimir nada a mano. Abre **Claude Code**
 
 ```
 Instala la Fábrica de Contenido Easy Meli: clona
-https://github.com/florercai-svg/easymeli-contenido en esta carpeta, lee su archivo INSTALAR.md
+https://github.com/EasyMeli/easymeli-contenido en esta carpeta, lee su archivo INSTALAR.md
 y ejecútalo tal cual (deja la skill lista, crea mi carpeta de trabajo,
 instala las dependencias) y después sigue con el onboarding. Háblame en
 simple y no me mandes a la Terminal.
