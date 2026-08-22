@@ -343,6 +343,30 @@ node scripts/ajustar-video.mjs <tema> --vibe energetico
 `calmado`; un hook de mucha energía → `energetico`/`epico`). `--camara` sigue
 existiendo para forzar solo el movimiento sin tocar los efectos.
 
+## Efecto "objetos detrás" (opcional, `--detras`)
+
+Para que los objetos no tapen la cara, pueden salir **detrás del presentador**.
+El script `scripts/recorte-persona.py` recorta a la persona (mediapipe, **local,
+sin tokens ni API**) y genera un video con alfa (`grabaciones/<tema>-fg.webm`);
+`VideoHablado` lo pone encima de los objetos → los objetos quedan detrás.
+
+```bash
+node scripts/producir-hablado.mjs <tema> --detras
+```
+
+O fijo por tema: `"video": { "objetosDetras": true }` en el guion.
+
+**Es opcional** para no cargar la instalación base. Requiere una vez:
+
+```bash
+pip install mediapipe opencv-contrib-python
+```
+
+(o `pip install -r requirements-detras.txt`). El modelo (~250 KB) se descarga
+solo la primera vez. Costo: ~2-3 min de CPU por video de 30-40 s. Si no está
+instalado, el video se produce igual con los objetos delante (comportamiento
+clásico).
+
 ## Layouts de escena reutilizables
 
 Además de las escenas del carrusel de cupones, `scenes.tsx` exporta

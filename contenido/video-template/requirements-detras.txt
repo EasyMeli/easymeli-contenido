@@ -1,0 +1,5 @@
+# Dependencias OPCIONALES para el efecto "objetos detrás" (--detras).
+# La instalación base NO las necesita. Instala solo si quieres ese efecto:
+#   pip install -r requirements-detras.txt
+mediapipe
+opencv-contrib-python

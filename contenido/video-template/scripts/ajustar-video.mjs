@@ -1,11 +1,11 @@
 // Guarda TUS AJUSTES del panel (subtítulos + cámara + títulos) dentro del guion,
-// por tema, para que el próximo render los use. Así lo que probás en Remotion
+// por tema, para que el próximo render los use. Así lo que pruebas en Remotion
 // Studio queda persistido como dato (no se pierde).
 //
 //   node scripts/ajustar-video.mjs guiones/cupones.json --subs-altura 340
 //   node scripts/ajustar-video.mjs guiones/cupones.json --subs-letra 64 --subs-estilo resaltado
 //   node scripts/ajustar-video.mjs guiones/cupones.json --camara agresivo
-//   node scripts/ajustar-video.mjs guiones/cupones.json --titulo-arriba "SI VENDÉS EN ML" --titulo-abajo "LEÉ ESTO"
+//   node scripts/ajustar-video.mjs guiones/cupones.json --titulo-arriba "SI VENDES EN ML" --titulo-abajo "LEE ESTO"
 //
 // Después: node scripts/producir-hablado.mjs guiones/cupones.json  (usa los ajustes)
 import { readFileSync, writeFileSync } from "node:fs";
@@ -57,4 +57,4 @@ if (!cambios.length) die("No pasaste ningún ajuste. Ver el uso arriba.");
 guion.video = v;
 writeFileSync(guionPath, JSON.stringify(guion, null, 2) + "\n");
 console.log(`✓ Guardado en ${guionPath} → video: { ${cambios.join(", ")} }`);
-console.log("  Aplicá con: node scripts/producir-hablado.mjs " + guionPath);
+console.log("  Aplica con: node scripts/producir-hablado.mjs " + guionPath);

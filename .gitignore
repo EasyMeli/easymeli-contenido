@@ -21,6 +21,9 @@
 # grabaciones de video (tomas propias)
 **/temas/**/grabaciones/*
 **/biblioteca/*.txt
+# modelos descargables (efecto "detrás") y recortes generados
+**/scripts/models/
+**/*-fg.webm
 
 # ── Sistema ──
 **/.DS_Store

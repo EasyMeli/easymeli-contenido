@@ -81,7 +81,7 @@ const PlacaChip: React.FC<{ text: string; delay: number; x: number; y: number; d
 };
 
 // ── Callouts sincronizados con la voz ──────────────────────────────────
-// Aparecen placas de marca justo cuando decís cada concepto clave (usando los
+// Aparecen placas de marca justo cuando dices cada concepto clave (usando los
 // tiempos de los subtítulos). Da movimiento y refuerzo durante TODO el video.
 // Cada regla: si dice esa palabra, aparece un OBJETO (ícono de marca) o una
 // placa de TEXTO. Cubre conceptos del nicho MercadoLibre → cada video muestra
@@ -309,7 +309,7 @@ export const TEXTOS_DEFAULT: TextosVideo = {
 };
 
 // Footage con efectos de cámara (zoom lento + "punch" periódico) + capas.
-const FootageEditado: React.FC<{ footage: string; footageFrames: number; captions?: Caption[]; textos: TextosVideo; reglasExtra?: Regla[] }> = ({ footage, footageFrames, captions, textos, reglasExtra }) => {
+const FootageEditado: React.FC<{ footage: string; footageFrames: number; captions?: Caption[]; textos: TextosVideo; reglasExtra?: Regla[]; fgArchivo?: string }> = ({ footage, footageFrames, captions, textos, reglasExtra, fgArchivo }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const callouts = React.useMemo(() => (captions ? construirCallouts(captions, fps, reglasExtra) : []), [captions, fps, reglasExtra]);
@@ -331,25 +331,36 @@ const FootageEditado: React.FC<{ footage: string; footageFrames: number; caption
     shake: vibeCfg.efectos.shake,
     jumpCut: vibeCfg.efectos.jumpCut,
   });
+  // Mismo transform para el fondo y para tu recorte → calzan pixel a pixel.
+  const camStyle: React.CSSProperties = {
+    transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.scale}) rotate(${cam.rot}deg)`,
+    transformOrigin: "50% 42%",
+    color: "#ffffff",
+  };
+  const objetos = callouts.map((c, i) => <Callout key={i} {...c} />);
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{
-transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.scale}) rotate(${cam.rot}deg)`,
-transformOrigin: "50% 42%",
-color: "#ffffff"
-}}>
+      <AbsoluteFill style={camStyle}>
         <OffthreadVideo src={staticFile(footage)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </AbsoluteFill>
+      {/* EFECTO "DETRÁS": si hay recorte del presentador, los objetos van entre el
+          fondo y tu silueta (así no te tapan la cara), y tu recorte va encima. */}
+      {fgArchivo && (
+        <>
+          {objetos}
+          <AbsoluteFill style={camStyle}>
+            <OffthreadVideo src={staticFile(fgArchivo)} transparent style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </AbsoluteFill>
+        </>
+      )}
       {/* efectos visuales (viñeta, grano, flash) según el vibe */}
       <EffectsLayer efectos={vibeCfg.efectos} punchFrames={punchFrames} />
       {/* scrim arriba y abajo para que los textos se lean */}
       <AbsoluteFill style={{ background: "linear-gradient(0deg, rgba(6,12,26,0.82) 0%, transparent 24%, transparent 60%, rgba(6,12,26,0.5) 100%)" }} />
       <BrandHeader />
       <TituloGancho lineas={[{ t: textos.tituloArriba }, { t: textos.tituloAbajo, hot: true }]} />
-      {/* animaciones a lo largo de TODO el video, sincronizadas con la voz */}
-      {callouts.map((c, i) => (
-        <Callout key={i} {...c} />
-      ))}
+      {/* Sin recorte: los objetos van arriba (comportamiento clásico). */}
+      {!fgArchivo && objetos}
       {captions && captions.length > 0 && <Subtitulos captions={captions} bottom={textos.alturaSubtitulos} font={textos.tamanoLetra} estilo={textos.estiloSubtitulos} />}
       <Footer />
     </AbsoluteFill>
@@ -443,6 +454,7 @@ export const videoHabladoSchema = z.object({
   footageFrames: z.number(),
   introArchivo: z.string(),
   captionsFile: z.string(),
+  fgArchivo: z.string().describe('Recorte del presentador con alfa (grabaciones/<tema>-fg.webm). Vacío = objetos delante (clásico)'),
   capturaArchivo: z.string().describe("Captura para el CTA final (public/capturas/..). Vacío = tarjeta de texto"),
   capturaTargetX: z.number().min(0).max(1).step(0.01).describe("Dónde apunta la flecha del CTA (izq→der)"),
   capturaTargetY: z.number().min(0).max(1).step(0.01).describe("Dónde apunta la flecha del CTA (arriba→abajo)"),
@@ -450,7 +462,7 @@ export const videoHabladoSchema = z.object({
   reglasExtra: z.string().describe('Objetos del tema, JSON: [{"palabras":"reloj|tiempo","objeto":"reloj.png","label":"TIEMPO"}]'),
 });
 
-export type VideoHabladoProps = { footage: string; footageFrames: number; introArchivo?: string; captionsFile?: string; textos?: TextosVideo; capturaArchivo?: string; capturaTargetX?: number; capturaTargetY?: number; reglasExtra?: string };
+export type VideoHabladoProps = { footage: string; footageFrames: number; introArchivo?: string; captionsFile?: string; fgArchivo?: string; textos?: TextosVideo; capturaArchivo?: string; capturaTargetX?: number; capturaTargetY?: number; reglasExtra?: string };
 
 const T = 12;
 const INTRO = 60;
@@ -461,7 +473,7 @@ export const videoHabladoDuration = (footageFrames: number, hasIntro: boolean) =
   return parts.reduce((a, b) => a + b, 0) - (parts.length - 1) * T;
 };
 
-export const VideoHablado: React.FC<VideoHabladoProps> = ({ footage, footageFrames, introArchivo, captionsFile, textos = TEXTOS_DEFAULT, capturaArchivo, capturaTargetX = 0.5, capturaTargetY = 0.42, reglasExtra: reglasExtraStr }) => {
+export const VideoHablado: React.FC<VideoHabladoProps> = ({ footage, footageFrames, introArchivo, captionsFile, fgArchivo, textos = TEXTOS_DEFAULT, capturaArchivo, capturaTargetX = 0.5, capturaTargetY = 0.42, reglasExtra: reglasExtraStr }) => {
   // Reglas de objetos del tema: llegan como JSON string y se convierten a RegExp.
   const reglasExtra = React.useMemo<Regla[]>(() => {
     try {
@@ -497,7 +509,7 @@ export const VideoHablado: React.FC<VideoHabladoProps> = ({ footage, footageFram
         {introArchivo && <TransitionSeries.Transition presentation={fade()} timing={timing} />}
 
         <TransitionSeries.Sequence durationInFrames={footageFrames}>
-          <FootageEditado footage={footage} footageFrames={footageFrames} captions={captions} textos={textos} reglasExtra={reglasExtra} />
+          <FootageEditado footage={footage} footageFrames={footageFrames} captions={captions} textos={textos} reglasExtra={reglasExtra} fgArchivo={fgArchivo} />
         </TransitionSeries.Sequence>
 
         <TransitionSeries.Transition presentation={fade()} timing={timing} />

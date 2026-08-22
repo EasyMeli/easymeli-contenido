@@ -83,7 +83,7 @@ export const RemotionRoot: React.FC = () => (
       fps={30}
       width={1080}
       height={1920}
-      defaultProps={{"textos":{"tituloArriba":"VENDES EN MERCADOLIBRE","tituloAbajo":"Y TU MARGEN NO CIERRA","placa":"-20%","alturaSubtitulos":300,"tamanoLetra":70,"estiloSubtitulos":"limpio" as const,"estiloCamara":"auto" as const,"vibe":"auto" as const},"footage":"grabaciones/cupones.mp4","footageFrames":1058,"introArchivo":"ai/cupones-intro.png","captionsFile":"captions/cupones.json","capturaArchivo":"","capturaTargetX":0.5,"capturaTargetY":0.42,"reglasExtra":"[]"}}
+      defaultProps={{"textos":{"tituloArriba":"VENDES EN MERCADOLIBRE","tituloAbajo":"Y TU MARGEN NO CIERRA","placa":"-20%","alturaSubtitulos":300,"tamanoLetra":70,"estiloSubtitulos":"limpio" as const,"estiloCamara":"auto" as const,"vibe":"auto" as const},"footage":"grabaciones/cupones.mp4","footageFrames":1058,"introArchivo":"ai/cupones-intro.png","captionsFile":"captions/cupones.json","fgArchivo":"","capturaArchivo":"","capturaTargetX":0.5,"capturaTargetY":0.42,"reglasExtra":"[]"}}
       calculateMetadata={({ props }) => ({
         durationInFrames: videoHabladoDuration(props.footageFrames, Boolean(props.introArchivo)),
       })}

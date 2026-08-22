@@ -4,10 +4,11 @@
 // clips con transiciones pro, saca la duración, genera la intro (si falta),
 // extrae el audio, transcribe (whisper) y renderiza el video.
 //
-//   1) Grabás 1 o varios clips y los dejás en  temas/<tema>/grabaciones/
+//   1) Grabas 1 o varios clips y los dejas en  temas/<tema>/grabaciones/
 //   2) node scripts/producir-hablado.mjs <tema>        (ej: cupones)
 //
 // Flags: --sin-imagen (no toca Gemini)  ·  --re-subs (rehace la transcripción)
+//        --detras (recorta al presentador → objetos detrás de él, corre local)
 import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync, readdirSync } from "node:fs";
 import { resolve, join } from "node:path";
@@ -32,7 +33,7 @@ const run = (label, cmd, a) => {
 
 // 1) Clips del tema → combinarlos (con transiciones si hay varios) a public/
 const clips = clipsDeTema(grabacionesDir);
-if (clips.length === 0) die(`No hay grabaciones en ${grabacionesDir}/ (dejá ahí tu clip como 1.mp4).`);
+if (clips.length === 0) die(`No hay grabaciones en ${grabacionesDir}/ (deja ahí tu clip como 1.mp4).`);
 mkdirSync(resolve("public/grabaciones"), { recursive: true });
 const pub = resolve("public/grabaciones", `${nombre}.mp4`);
 console.log(`▶ ${clips.length} clip(s) en ${grabacionesDir}/`);
@@ -41,6 +42,17 @@ try { combinarClips(clips.map((c) => resolve(c)), pub); } catch (e) { die(e.mess
 // 2) Duración del footage combinado → frames (30fps)
 const footageFrames = Math.round(duracionSeg(pub) * 30);
 console.log(`▶ Footage final: ${duracionSeg(pub).toFixed(1)}s → ${footageFrames} frames`);
+
+// 2b) Efecto "detrás" (opcional): recorta al presentador → los objetos salen
+// detrás de él (no le tapan la cara). Corre local (mediapipe), sin tokens.
+// Se activa con --detras o "video": { "objetosDetras": true } en el guion.
+let fgArchivo = "";
+if (has("--detras") || guion.video?.objetosDetras) {
+  const fgPub = resolve("public/grabaciones", `${nombre}-fg.webm`);
+  run("Recortar presentador (efecto detrás, local)", "python3", ["scripts/recorte-persona.py", pub, fgPub]);
+  if (existsSync(fgPub)) fgArchivo = `grabaciones/${nombre}-fg.webm`;
+  else console.warn("  ⚠ No se generó el recorte; sigo con los objetos delante.");
+}
 
 // 3) Intro con tu cara (solo si el guion lo pide y falta el PNG)
 let introArchivo = "";
@@ -94,9 +106,9 @@ const capturaTargetY = guion.video?.capturaTargetY ?? 0.42;
 const reglasExtra = JSON.stringify(guion.reglas || []);
 
 const propsPath = resolve(`${outDir}/.props-hablado.json`);
-writeFileSync(propsPath, JSON.stringify({ footage: `grabaciones/${nombre}.mp4`, footageFrames, introArchivo, captionsFile: `captions/${nombre}.json`, textos, capturaArchivo, capturaTargetX, capturaTargetY, reglasExtra }));
+writeFileSync(propsPath, JSON.stringify({ footage: `grabaciones/${nombre}.mp4`, footageFrames, introArchivo, captionsFile: `captions/${nombre}.json`, fgArchivo, textos, capturaArchivo, capturaTargetX, capturaTargetY, reglasExtra }));
 const out = `${outDir}/${nombre}-hablado.mp4`;
 run(`Render video (${introArchivo ? "con intro" : "sin intro"})`, "npx", ["remotion", "render", "VideoHablado", out, "--props", propsPath]);
 
 console.log(`\n✅ Listo: ${out}`);
-console.log(`   Subtítulos editables en ${captionsPath} (corregí lo que whisper escuche mal y re-renderizá).`);
+console.log(`   Subtítulos editables en ${captionsPath} (corrige lo que whisper escuche mal y re-renderiza).`);
