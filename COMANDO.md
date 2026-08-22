@@ -5,18 +5,19 @@ Claude Code** (en cualquier carpeta) y Claude hace el resto.
 
 ```
 Instala la Fábrica de Contenido Easy Meli: clona
-https://github.com/USUARIO/REPO en esta carpeta, lee su archivo INSTALAR.md
+https://github.com/florercai-svg/easymeli-contenido en esta carpeta, lee su archivo INSTALAR.md
 y ejecútalo tal cual (deja la skill lista, crea mi carpeta de trabajo,
 instala las dependencias) y después sigue con el onboarding. Háblame en
 simple y no me mandes a la Terminal.
 ```
 
-## Antes de compartirlo
-1. Sube este proyecto a GitHub (una vez, desde tu cuenta).
-2. Reemplaza `USUARIO/REPO` por la dirección real de tu repositorio.
-   - Ejemplo: `https://github.com/gabriel-jojis/easymeli-contenido`
-3. Si el repo es **privado**, la persona necesita acceso (invítala en GitHub) y
-   tener `git` configurado con su cuenta. Si es **público**, funciona directo.
+## Acceso (el repo es privado)
+El repositorio vive en `github.com/florercai-svg/easymeli-contenido` y es
+**privado**. Para que alguien pueda clonarlo:
+1. Invítalo como colaborador en GitHub (Settings → Collaborators → Add people).
+2. La persona debe tener su `git` conectado a su cuenta de GitHub.
+
+Si algún día lo haces público, el comando funciona para cualquiera sin invitar.
 
 ## Qué necesita tener la persona (una sola vez)
 - **Claude Code** instalado.

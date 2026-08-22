@@ -31,7 +31,7 @@ No tienes que descargar ni descomprimir nada a mano. Abre **Claude Code**
 
 ```
 Instala la Fábrica de Contenido Easy Meli: clona
-https://github.com/USUARIO/REPO en esta carpeta, lee su archivo INSTALAR.md
+https://github.com/florercai-svg/easymeli-contenido en esta carpeta, lee su archivo INSTALAR.md
 y ejecútalo tal cual (deja la skill lista, crea mi carpeta de trabajo,
 instala las dependencias) y después sigue con el onboarding. Háblame en
 simple y no me mandes a la Terminal.
@@ -42,8 +42,8 @@ Con eso, Claude clona el proyecto, instala todo y te va guiando paso a paso
 Terminal ni creas archivos. Lo único que quizás te pida, solo si te falta, es
 instalar **Node** (nodejs.org) o **Python** (python.org).
 
-> 🔑 **Cambia `USUARIO/REPO`** por la dirección real del repositorio (te la pasa
-> quien te compartió esto).
+> 🔒 El repositorio es **privado**: necesitas que te den acceso en GitHub y tener
+> tu `git` conectado a tu cuenta. Si no puedes clonar, pídele acceso a Gabriel.
 
 *(¿Ya tienes la carpeta descargada? También puedes abrir Claude Code dentro de
 ella y escribir **"instala este proyecto"**. Y si prefieres el modo técnico:
